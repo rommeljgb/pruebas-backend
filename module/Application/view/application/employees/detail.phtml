@@ -1,0 +1,44 @@
+<?php 
+foreach ($this->data as $getrow)
+?>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" id="txtname" aria-describedby="" placeholder="Name" value="<?php echo  $getrow['name'];?>">
+   
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Email</label>
+    <input type="email" class="form-control" id="txtmail" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $getrow['email'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Phone</label>
+  <input type="email" class="form-control" id="txtphone" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $getrow['phone'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect2">Address</label>
+   <input type="email" class="form-control" id="txtaddres" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $getrow['address'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleTextarea">Position</label>
+    <input type="email" class="form-control" id="txtaddres" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $getrow['position'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">Salary</label>
+    <input type="email" class="form-control" id="txtaddres" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $getrow['salary'];?>">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect2">Skills</label>
+    <select class="form-control" id="exampleSelect2">
+        <?php 
+        foreach ($getrow['skills'] as $get){
+        ?>
+      <option><?php echo $get['skill'];?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+  <a href="<?php echo $this->basePath('application/employees/index'); ?>" class="btn btn-primary btn-lg">Retornar</a>
+</form>

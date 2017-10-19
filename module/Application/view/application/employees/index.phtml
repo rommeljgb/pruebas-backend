@@ -1,0 +1,49 @@
+<h1>Problema 2/Listado de Empleados</h1>
+<form class="form-inline" id="frmrange" name="frmrange" method="post" action="<?php echo $this->basePath('application/employees/index');?>">
+  <div class="form-group">
+    <label class="sr-only" for="Cadena">Buscar por email:</label>
+    <input type="text" class="form-control" id="emails" name="emails" value="chasitycarver@fanfare.com">
+    
+  </div><br>
+
+  <button type="submit" class="btn btn-default">Buscar</button>
+  <button type="reset" class="btn btn-default">Nuevo</button>
+</form>
+<div>
+  <table class="table table-inverse">
+  <thead>
+    <tr>
+        <th>#</th>
+        <th> name</th>
+        <th> email</th>
+        <th> position</th>
+        <th> salary</th>
+        <th> Actions</th>
+    </tr>
+  </thead>     
+  <tbody>
+      <?php
+    $i=0;
+    foreach ($this->data as $getrow) {   
+        $i++;
+        $id = $getrow['id'];
+    ?> 
+    <tr>      
+      <th scope="row"><?php echo $i;?></th>
+      <td><?php echo $getrow['name'];?></td>
+      <td><?php echo $getrow['email'];?></td>
+      <td><?php echo $getrow['position'];?></td>
+      <td><?php echo $getrow['salary'];?></td>
+      <td>         
+          <a href="<?php echo $this->basePath('application/employees/detail/'.$id); ?>" class="btn btn-primary btn-lg">Detalle</a>
+
+      </td>
+    </tr>
+    <?php 
+    }
+    ?>
+  </tbody>
+</table>    
+    
+</div>
+
